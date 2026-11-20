@@ -1208,6 +1208,32 @@ body.reader-open {
   opacity: 0.7;
 }
 
+/* Artbook section (Homepage) */
+.artbook-section {
+  background: var(--ink);
+  color: var(--paper);
+}
+.artbook-section .eyebrow {
+  color: var(--pink);
+}
+.artbook-section h2 {
+  max-width: 700px;
+}
+.artbook-player {
+  margin-top: 2rem;
+  max-width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 24px 48px -16px rgba(0, 0, 0, 0.4);
+  background: #000;
+}
+.artbook-player video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 /* Image Viewer Dialog (Work page) */
 .image-viewer {
   margin: 0;
