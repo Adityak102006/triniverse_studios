@@ -1209,14 +1209,14 @@ body.reader-open {
 }
 
 /* Artbook section (Homepage) */
-.artbook-section {
+.section-artbook {
   background: var(--ink);
   color: var(--paper);
 }
-.artbook-section .eyebrow {
+.section-artbook .eyebrow {
   color: var(--pink);
 }
-.artbook-section h2 {
+.section-artbook h2 {
   max-width: 700px;
 }
 .artbook-player {
