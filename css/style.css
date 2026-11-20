@@ -233,6 +233,13 @@ textarea {
   color: var(--pink);
   font: italic clamp(3rem, 8vw, 6rem) var(--serif);
   transform: rotate(-12deg);
+  overflow: hidden;
+}
+.hero-planet img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
 }
 .hero-planet:after {
   content: "";
