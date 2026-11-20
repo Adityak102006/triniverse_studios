@@ -22,7 +22,7 @@ document
 
 // Reveal sections and cards as they enter the viewport
 const motionTargets = document.querySelectorAll(
-  ".page-intro,.section-head,.project-card,.split-copy,.split-art,.quote-band,.cta-panel,.team-group,.contact-grid,.novel-panel",
+  ".page-intro,.section-head,.project-card,.split-copy,.split-art,.quote-band,.cta-panel,.team-group,.contact-grid,.novel-hero,.novel-updates",
 );
 if (
   "IntersectionObserver" in window &&
@@ -45,69 +45,32 @@ if (
   });
 }
 
-// Prologue Reader Dialog
-(function () {
-  const dialog = document.getElementById("prologue-dialog");
-  const openBtn = document.getElementById("open-prologue");
-  const closeBtn = dialog?.querySelector("[data-close-prologue]");
-  let lastFocusedElement = null;
-  let bodyOverflow = "";
-
-  if (!dialog || !openBtn || !closeBtn) return;
-
-  function lockBodyScroll() {
-    bodyOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-  }
-
-  function unlockBodyScroll() {
-    document.body.style.overflow = bodyOverflow;
-  }
-
-  function openDialog() {
-    lastFocusedElement = document.activeElement;
-    lockBodyScroll();
-    dialog.showModal();
-    closeBtn.focus();
-  }
-
-  function closeDialog() {
-    unlockBodyScroll();
-    dialog.close();
-    lastFocusedElement?.focus();
-  }
-
-  openBtn.addEventListener("click", openDialog);
-
-  closeBtn.addEventListener("click", closeDialog);
-
-  dialog.addEventListener("click", (event) => {
-    if (event.target === dialog) {
-      closeDialog();
+// Chapter reader dialog
+const chapterDialog = document.querySelector("#chapter-dialog");
+const openChapterButton = document.querySelector("#open-prologue");
+const closeChapterButton = chapterDialog?.querySelector(
+  ".chapter-dialog__close",
+);
+if (
+  chapterDialog &&
+  openChapterButton &&
+  closeChapterButton &&
+  typeof chapterDialog.showModal === "function"
+) {
+  openChapterButton.addEventListener("click", () => {
+    if (!chapterDialog.open) {
+      chapterDialog.showModal();
+      document.body.classList.add("reader-open");
     }
   });
-
-  dialog.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
-      event.preventDefault();
-      closeDialog();
-    }
-    if (event.key === "Tab") {
-      const focusableElements = dialog.querySelectorAll(
-        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-      );
-      const firstElement = focusableElements[0];
-      const lastElement = focusableElements[focusableElements.length - 1];
-      if (event.shiftKey && document.activeElement === firstElement) {
-        event.preventDefault();
-        lastElement.focus();
-      } else if (!event.shiftKey && document.activeElement === lastElement) {
-        event.preventDefault();
-        firstElement.focus();
-      }
-    }
+  closeChapterButton.addEventListener("click", () => chapterDialog.close());
+  chapterDialog.addEventListener("click", (event) => {
+    if (event.target === chapterDialog) chapterDialog.close();
   });
-})();
+  chapterDialog.addEventListener("close", () =>
+    document.body.classList.remove("reader-open"),
+  );
+}
 
 // Contact and novel-update forms
 const accessKey = "YOUR_WEB3FORMS_ACCESS_KEY";
