@@ -83,7 +83,7 @@ All links and asset paths are relative — no configuration needed.
 
 ## Deployment
 
-Any static host works (GitHub Pages, Netlify, Vercel, Cloudflare Pages, Apache, Nginx). No build step required.
+Deployed in Vercel
 
 ---
 
