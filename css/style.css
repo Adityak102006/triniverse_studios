@@ -1320,13 +1320,10 @@ body.reader-open {
   outline-offset: 2px;
 }
 
-/* Mobile adjustments for close button */
+/* Mobile: hide close button (tap backdrop or swipe to close) */
 @media (max-width: 560px) {
   .image-viewer__close {
-    top: 8px;
-    right: 8px;
-    width: 32px;
-    height: 32px;
+    display: none;
   }
 }
 .image-viewer__figure {
