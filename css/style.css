@@ -184,6 +184,7 @@ textarea {
   padding: clamp(74px, 11vw, 150px) 0 88px;
   position: relative;
   overflow: hidden;
+  background: var(--paper);
 }
 .hero-grid {
   display: grid;
