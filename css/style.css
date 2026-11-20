@@ -1248,9 +1248,6 @@ body.reader-open {
   max-height: 100vh;
   max-height: 100dvh;
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 .image-viewer::backdrop {
   background: rgba(36, 33, 37, 0.9);
