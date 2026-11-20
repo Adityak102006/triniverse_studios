@@ -1293,19 +1293,20 @@ body.reader-open {
 }
 .image-viewer__close {
   position: absolute;
-  top: -60px;
-  right: 0;
-  width: 48px;
-  height: 48px;
+  top: 12px;
+  right: 12px;
+  width: 44px;
+  height: 44px;
   display: grid;
   place-items: center;
-  background: var(--ink);
-  border: 1px solid var(--line);
+  background: rgba(36, 33, 37, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 50%;
   color: var(--paper);
   cursor: pointer;
   transition: background-color 0.15s, border-color 0.15s, color 0.15s, transform 0.15s;
   z-index: 10;
+  backdrop-filter: blur(4px);
 }
 .image-viewer__close:hover,
 .image-viewer__close:focus {
@@ -1317,6 +1318,16 @@ body.reader-open {
 .image-viewer__close:focus-visible {
   outline: 2px solid var(--pink);
   outline-offset: 2px;
+}
+
+/* Mobile adjustments for close button */
+@media (max-width: 560px) {
+  .image-viewer__close {
+    top: 8px;
+    right: 8px;
+    width: 40px;
+    height: 40px;
+  }
 }
 .image-viewer__figure {
   margin: 0;
