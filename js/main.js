@@ -72,6 +72,66 @@ if (
   );
 }
 
+// Image viewer dialog (Work page)
+(function () {
+  const viewer = document.getElementById("image-viewer");
+  const viewerImg = document.getElementById("image-viewer-img");
+  const viewerCaption = document.getElementById("image-viewer-caption");
+  const closeBtn = viewer?.querySelector("[data-close-viewer]");
+  const triggerImages = document.querySelectorAll(".art-card img[data-fullsrc]");
+  let lastFocused = null;
+
+  if (!viewer || !viewerImg || !viewerCaption || !closeBtn || triggerImages.length === 0) return;
+
+  function openViewer(src, caption) {
+    lastFocused = document.activeElement;
+    viewerImg.src = src;
+    viewerImg.alt = caption || "";
+    viewerCaption.textContent = caption || "";
+    viewer.showModal();
+    closeBtn.focus();
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeViewer() {
+    viewer.close();
+    viewerImg.src = "";
+    viewerCaption.textContent = "";
+    document.body.style.overflow = "";
+    lastFocused?.focus();
+  }
+
+  triggerImages.forEach((img) => {
+    img.style.cursor = "zoom-in";
+    img.addEventListener("click", () => {
+      const src = img.dataset.fullsrc || img.src;
+      const caption = img.dataset.caption || img.alt;
+      openViewer(src, caption);
+    });
+    img.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        img.click();
+      }
+    });
+  });
+
+  closeBtn.addEventListener("click", closeViewer);
+
+  viewer.addEventListener("click", (e) => {
+    if (e.target === viewer || e.target === viewer.querySelector(".image-viewer__backdrop")) {
+      closeViewer();
+    }
+  });
+
+  viewer.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      e.preventDefault();
+      closeViewer();
+    }
+  });
+})();
+
 // Contact and novel-update forms
 const accessKey = "YOUR_WEB3FORMS_ACCESS_KEY";
 document.querySelectorAll("[data-web3forms]").forEach((form) =>

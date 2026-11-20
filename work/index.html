@@ -79,6 +79,8 @@
                   height="800"
                   loading="lazy"
                   decoding="async"
+                  data-fullsrc="../assets/images/shiv-vs-vasna.jpeg"
+                  data-caption="Shiv vs Vasna — key artwork from Fight for the Astras"
                 />
                 <figcaption class="art-label">Fight for the Astras</figcaption>
               </figure>
@@ -100,6 +102,8 @@
                   height="800"
                   loading="lazy"
                   decoding="async"
+                  data-fullsrc="../assets/images/varca-vs-makar.jpeg"
+                  data-caption="Varca vs Makar — concept art from Fight for the Astras"
                 />
                 <figcaption class="art-label">Fight for the Astras</figcaption>
               </figure>
@@ -121,6 +125,8 @@
                   height="800"
                   loading="lazy"
                   decoding="async"
+                  data-fullsrc="../assets/images/storyboarding1.jpeg"
+                  data-caption="Storyboard sequence — Fight for the Astras prologue"
                 />
                 <figcaption class="art-label">Fight for the Astras</figcaption>
               </figure>
@@ -142,6 +148,8 @@
                   height="800"
                   loading="lazy"
                   decoding="async"
+                  data-fullsrc="../assets/images/storyboarding2.jpeg"
+                  data-caption="Storyboard sequence — celestial battle from Fight for the Astras"
                 />
                 <figcaption class="art-label">Fight for the Astras</figcaption>
               </figure>
@@ -157,6 +165,23 @@
           </div>
         </div>
       </section>
+
+      <dialog id="image-viewer" class="image-viewer" aria-labelledby="image-viewer-caption" role="dialog" aria-modal="true">
+        <div class="image-viewer__backdrop" tabindex="-1" aria-hidden="true"></div>
+        <div class="image-viewer__panel">
+          <button class="image-viewer__close" aria-label="Close image viewer" data-close-viewer>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+          <figure class="image-viewer__figure">
+            <img id="image-viewer-img" src="" alt="" />
+            <figcaption id="image-viewer-caption" class="image-viewer__caption"></figcaption>
+          </figure>
+        </div>
+      </dialog>
+
       <section class="section">
         <div class="wrap cta-panel">
           <div>
