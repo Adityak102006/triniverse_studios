@@ -1,38 +1,90 @@
-# Triniverse Studios website
+# Triniverse Studios Website
 
-A lightweight, responsive multi-page site built with plain HTML, CSS, and JavaScript. No framework, build step, external font, image CDN, or third-party script is required.
+The official website for **Triniverse Studios**, a Lucknow-based animation studio creating original animated series and stories.
 
-## Pages
+## Overview
 
-- `index.html` — home
-- `work.html` — projects
-- `about.html` — studio story
-- `novel.html` — novel in development and notification signup
-- `team.html` — board of directors and team
-- `contact.html` — studio contact and inquiry form
-- `terms.html` — contact, hiring, freelance, and project-enquiry terms
-- `privacy.html` — privacy notice and DPDP requests
+A lightweight, responsive multi-page site built with plain HTML, CSS, and JavaScript — no framework, build step, external font CDN, image CDN, or third-party scripts required. All assets are self-hosted.
 
-Shared code is in `css/style.css` and `js/main.js`; the favicon and locally hosted, subset display, body, and calligraphy fonts are in `assets/`. Their SIL Open Font Licenses are included beside the font files.
+### Pages
 
-## Where to edit
+| Page | Description |
+|------|-------------|
+| `/` (index) | Studio home — hero, work preview, studio intro, CTA |
+| `/work/` | Projects in development (placeholder cards) |
+| `/about/` | Studio story, creative philosophy, values |
+| `/novel/` | *Fight for the Astras* — Volume 1 prologue with chapter reader dialog |
+| `/team/` | Board of directors and studio team |
+| `/contact/` | Contact form, email, location, legal summary |
+| `/privacy/` | Privacy notice (DPDP Act 2023 compliant) |
+| `/terms/` | Contact & work enquiry terms |
 
-- Page copy and page-specific sections: the matching `.html` file.
-- Colors, layout, typography, and responsive behavior: `css/style.css`, grouped by component.
-- Navigation, scroll reveals, and form handling: `js/main.js`.
-- Images, icons, and fonts: `assets/`.
+### Assets
 
-The header and footer are repeated in each HTML page to keep this a build-free static site. When changing either, make the same update on every page. Source files use two-space indentation; to reformat them, run `npx prettier --write '*.html' css/style.css js/main.js README.md` (this adds no runtime dependency).
+- **Fonts** (self-hosted, `assets/fonts/`): Cormorant Garamond, Manrope, Triniverse Script (SIL OFL licensed)
+- **Images** (`assets/images/`): Novel cover, chapter illustrations (Brahmastra, Rakshasas)
+- **Favicon**: SVG (`assets/favicon.svg`)
 
-## Before publishing
+## Tech Stack
 
-1. Replace bracketed text such as `[Name]`, `[Role]`, legal-identity placeholders, and project placeholders with verified studio information. Remove entries that do not apply.
-2. The studio email is set to `theart.illeryuniverse@gmail.com`; the operator is named as Suryansh Srivastava, based in Lucknow, Uttar Pradesh. Confirm whether the locality-only address needs a fuller postal address or entity details. Match stated retention to the actual inbox and Web3Forms settings, then have an Indian-qualified lawyer review both pages before publication.
-3. Create a Web3Forms form/access key, then replace `YOUR_WEB3FORMS_ACCESS_KEY` in `js/main.js`. The key is intentionally a placeholder: forms do not submit until configured. Verify its allowed-domain, retention, processor, and spam-filter settings against the Privacy Notice before collecting data.
-4. Replace every `YOUR-DOMAIN.example` in `sitemap.xml` with the official HTTPS domain before submitting the sitemap to search engines. Add canonical and full Open Graph URL tags after the final deployment URL is known. `robots.txt` currently allows crawling and does not advertise the placeholder sitemap.
-5. Add real, licensed project artwork and update the related alt text when image assets are supplied. Current artwork is made from CSS shapes.
-6. Confirm the studio's exact Lucknow address and contact details before adding them to search listings or structured data.
+- **HTML** — Semantic, accessible markup; directory-based routing (`page/index.html`)
+- **CSS** — Custom properties, fluid typography (`clamp()`), CSS Grid/Flexbox, `@font-face`, `@media (prefers-reduced-motion)`
+- **JS** — Vanilla: mobile nav, scroll reveals (`IntersectionObserver`), `<dialog>` chapter reader, Web3Forms submission
 
-## Run locally
+## Project Structure
 
-Open `index.html` directly, or serve the folder with any static web server. All page and asset links are relative.
+```
+├── index.html
+├── css/style.css
+├── js/main.js
+├── assets/
+│   ├── favicon.svg
+│   ├── images/
+│   │   ├── coverpage.jpeg
+│   │   ├── brahmastra.jpeg
+│   │   └── Rakhshasa.jpeg
+│   └── fonts/
+│       ├── cormorant-garamond.woff2
+│       ├── manrope.woff2
+│       └── triniverse-script.woff2
+├── about/index.html
+├── work/index.html
+├── novel/index.html
+├── team/index.html
+├── contact/index.html
+├── privacy/index.html
+├── terms/index.html
+├── sitemap.xml
+├── robots.txt
+└── README.md
+```
+
+## Local Development
+
+Open `index.html` directly in a browser, or serve with any static server:
+
+```bash
+npx serve .
+# or
+python -m http.server
+# or
+php -S localhost:8000
+```
+
+All links and asset paths are relative — no configuration needed.
+
+## Configuration Required Before Launch
+
+1. **Web3Forms** — Replace `YOUR_WEB3FORMS_ACCESS_KEY` in `js/main.js` with a valid key
+2. **Domain** — Update `sitemap.xml` and add canonical/OG URLs once the production domain is known
+3. **Content** — Replace all bracketed placeholders (`[Series title]`, `[Team member name]`, etc.) with verified information
+4. **Legal** — Confirm operator details, postal address, and retention policies; have an Indian-qualified lawyer review `/privacy/` and `/terms/`
+5. **Artwork** — Swap CSS-shape placeholders for licensed project artwork with proper alt text
+
+## Deployment
+
+Any static host works (GitHub Pages, Netlify, Vercel, Cloudflare Pages, Apache, Nginx). No build step required.
+
+---
+
+*Triniverse Studios — Stories from Lucknow, India.*
