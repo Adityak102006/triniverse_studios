@@ -226,7 +226,7 @@ textarea {
 .hero-planet {
   width: 47%;
   aspect-ratio: 1;
-  border-radius: 47% 53% 51% 49%;
+  border-radius: 50%;
   background: var(--ink);
   position: relative;
   display: grid;
@@ -241,15 +241,6 @@ textarea {
   height: 100%;
   object-fit: cover;
   border-radius: inherit;
-}
-.hero-planet:after {
-  content: "";
-  position: absolute;
-  width: 130%;
-  height: 23%;
-  border: 2px solid var(--ink);
-  border-radius: 50%;
-  transform: rotate(-25deg);
 }
 .spark {
   position: absolute;
